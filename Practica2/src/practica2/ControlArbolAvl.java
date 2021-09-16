@@ -171,7 +171,43 @@ public class ControlArbolAvl {
         }
     }
     //------------------------------------------------
+    //Impresion por niveles
+    public int getAltura(){
+        return getAltura(raiz);
+    }
     
+    private int getAltura(NodoAvl n){
+        if(n == null){
+            return 0;
+        }else{
+            int altIzq = getAltura(n.getHijoizq());
+            int atlDer = getAltura(n.getHijoder());
+            //debe obtener el max
+            if(altIzq>atlDer){
+                return altIzq+1; 
+            }else{
+                return atlDer+1; 
+            }
+        }
+    }
     
+    public void niveles(){
+        NodoAvl n = raiz;
+        int  numN = getAltura(n);
+        for (int i = 1; i <= numN; i++) {
+            System.out.println("Nivel:"+i);
+            nivelRecursivo(n,i);
+        }
+    }
     
+    public void nivelRecursivo(NodoAvl n,int nvl){
+        if(n==null){
+        }else if(nvl ==1){
+            System.out.println(n.getCont()+",");
+        }else{
+            nivelRecursivo(n.getHijoizq(),nvl-1);
+            nivelRecursivo(n.getHijoder(),nvl-1);
+        }
+    }
+    //------------------------------
 }

@@ -34,10 +34,8 @@ public class Practica2 {
         System.out.println("Arbol Avl");
         llena.llenarbinAvl(carbolavl);
         carbolavl.enorden();
-        int dato;
-        System.out.println("digete dato a buscar");
-        dato =  Integer.parseInt(scan.nextLine());
-        carbolavl.buscar(dato);
+        System.out.println(""+carbolavl.getAltura());
+        carbolavl.niveles();
         
     }
     
