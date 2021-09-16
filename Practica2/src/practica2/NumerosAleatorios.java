@@ -14,7 +14,7 @@ public class NumerosAleatorios {
     
     //metodo para llenar Arbol binario
     public void llenar(ControlArbolbin contenidobin,ControlArbolAvl contenidoavl){
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             int j = llenar[i];
             llenar[i]= (int) (Math.random()*1000000) ;
             contenidobin.insertarBin(llenar[i]);

@@ -18,28 +18,9 @@ public class Practica2 {
      */
     public static void main(String[] args) {
         //Variables locales
-        
-        ControlArbolbin carbolBin = new ControlArbolbin();
-        ControlArbolAvl carbolavl = new ControlArbolAvl();
-        NumerosAleatorios llena=new NumerosAleatorios();
-        Scanner scan= new Scanner(System.in);
+        Menu menu= new Menu();
         //-------------------------------------------------------
-         llena.llenar(carbolBin,carbolavl);
-//        System.out.println("Arbol bin");
-//        llena.llenarbin(carbolBin);
-//        System.out.println("----------------------------");
-//        carbolBin.niveles();
-//        System.out.println("in>orden----------------------------");
-//        carbolBin.inOrdenRecursivo();
-        System.out.println("#####################################");
-        System.out.println("Arbol Avl");
-        carbolBin.inOrdenRecursivo();
-        System.out.println("");
-        System.out.println("Ingrese dato a buscar");
-        int dato;
-        dato=Integer.parseInt(scan.nextLine());
-        carbolBin.buscar(dato);
-        
+        menu.Menu();
     }
     
 }

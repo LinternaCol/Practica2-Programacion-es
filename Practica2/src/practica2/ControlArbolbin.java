@@ -75,31 +75,6 @@ public class ControlArbolbin {
         return menor;
     }
     
-        
-    
-    public void preOrdenIterativo(){
-        Stack<Nodobinclass> pila = new Stack<>();
-        Nodobinclass actual = raiz;
-        pila.push(actual);
-        
-        while(!pila.isEmpty()){
-            
-            //procesar nodo
-            System.out.print(actual.getContenido()+",");
-            if(actual.getHijoDerecho() != null){
-                //guardo el hijo derecho para despues
-                pila.push(actual.getHijoDerecho()); // apilando
-            }
-            
-            if(actual.getHijoIzquierdo() != null){
-                actual = actual.getHijoIzquierdo();
-            }else{
-                actual = pila.pop(); // desapilando
-            }
-            
-        }
-        System.out.println("");
-    }
     
     //sobre carga
     public void preOrdenRecursivo(){
@@ -201,24 +176,25 @@ public class ControlArbolbin {
     //Metodo para buscar un elemento del arbol Avl
     public void buscar(int dato){
         int x=0;
-            buscar(dato, raiz,x);            
+            buscar(dato,raiz,x);            
     }
     public Nodobinclass buscar(int dato, Nodobinclass s,int numcom) {
         
         if (s == null) {
-            System.out.println("No hay datos existentes");
+            System.out.println("No se encotro el dato");
             return null;
         } else if (s.getContenido() == dato) {
             System.out.println("Dato encontrado---> "+dato);
             System.out.println("El numero de comparaciones--->  " +numcom);
             return s;
         } else if (s.getContenido() < dato) {
-            return buscar(dato, s.getHijoIzquierdo(),numcom++);
+            return buscar(dato, s.getHijoDerecho(),numcom++);
         } else {
             numcom++;
             return buscar(dato, s.getHijoIzquierdo(),numcom++);
         }
     }
     //--------------------------------------------
+    
     
 }

@@ -195,7 +195,7 @@ public class ControlArbolAvl {
     }
     
     public void niveles(){
-        NodoAvl n = raiz;
+        NodoAvl n=raiz;
         int  numN = getAltura(n);
         for (int i = 1; i <= numN; i++) {
             System.out.println("Nivel:"+i);
@@ -213,4 +213,65 @@ public class ControlArbolAvl {
         }
     }
     //------------------------------
+    //Eliminar 
+    private NodoAvl nodoMax(NodoAvl node){
+    NodoAvl act=node;
+    while(act.getHijoder()!=null){
+        act=act.getHijoder();
+    }
+    return act;
+    }
+     public void eliminar(int dato){
+    raiz=eliminarAvl(raiz,dato);
+    }
+    private NodoAvl eliminarAvl(NodoAvl act, int dato) {
+        if (act == null) {
+            return act;
+        }
+        if (dato < act.getCont()) {
+            act.setHijoizq(eliminarAvl(act.getHijoizq(), dato));
+        } else if (dato > act.getCont()) {
+            act.setHijoder(eliminarAvl(act.getHijoder(), dato));
+        } else {
+            if (act.getHijoizq() == null || act.getHijoder() == null) {
+                NodoAvl temp = null;
+                if (temp == act.getHijoizq()) {
+                    temp = act.getHijoder();
+                } else {
+                    temp = act.getHijoizq();
+                }
+                //si no tiene hijos
+                if (temp == null) {
+                    act = null;//se elimina dejandolo en null
+                } else {//con hijo
+                    act = temp;//el valor actual toma el valor del hijo
+                }
+            }else{
+            //nodo con dos hijos, se busca el anterior
+            NodoAvl temp=nodoMax(act.getHijoizq());
+            act.setCont(temp.getCont());
+            act.setHijoizq(eliminarAvl(act.getHijoizq(),temp.getCont()));
+            }
+        }
+        int fe=getEqu(act);
+        //Rotacion hacia la derecha
+        if (fe>1 &&getEqu(act.getHijoizq())>=0) {
+            return haciaDer(act);
+        }
+        //Rotacion Izq
+        if (fe<-1&&getEqu(act.getHijoder())<=0) {
+            return haciaIzq(act);
+        }
+        //Rotacion Izq-Derecha
+        if (fe>1&&getEqu(act.getHijoizq())<0) {
+            act.setHijoizq(haciaIzq(act.getHijoizq()));
+            return haciaDer(act);
+        }
+        //Rotacion Derecha-Izq
+        if (fe<-1&&getEqu(act.getHijoder())>0) {
+            act.setHijoder(haciaDer(act.getHijoder()));
+            return haciaIzq(act);
+        }
+        return act;
+    }
 }
