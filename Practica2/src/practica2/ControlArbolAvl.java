@@ -17,19 +17,22 @@ public class ControlArbolAvl {
     }
     //Metodo para buscar un elemento del arbol Avl
     public void buscar(int dato){
-            buscar(dato, raiz);            
+        int x=0;
+            buscar(dato, raiz,x);            
     }
-    public NodoAvl buscar(int dato, NodoAvl s) {
-        if (raiz == null) {
-            System.out.println("No hay datos existentes");
+    public NodoAvl buscar(int dato, NodoAvl s,int numcom) {
+        
+        if (s == null) {
+            System.out.println("Dato no encontrado");
             return null;
         } else if (s.getCont() == dato) {
-            System.out.println("Dato encontrado  "+dato);
+            System.out.println("Dato encontrado---> "+dato);
+            System.out.println("El numero de comparaciones--->  " +numcom);
             return s;
         } else if (s.getCont() < dato) {
-            return buscar(dato, s.getHijoder());
+            return buscar(dato, s.getHijoder(),numcom++);
         } else {
-            return buscar(dato, s.getHijoizq());
+            return buscar(dato, s.getHijoizq(),numcom++);
         }
     }
     //--------------------------------------------

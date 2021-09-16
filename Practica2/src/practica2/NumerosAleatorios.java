@@ -13,21 +13,12 @@ public class NumerosAleatorios {
     int [] llenar= new int[10000000];
     
     //metodo para llenar Arbol binario
-    public void llenarbin(ControlArbolbin contenido){
+    public void llenar(ControlArbolbin contenidobin,ControlArbolAvl contenidoavl){
         for (int i = 0; i < 100; i++) {
             int j = llenar[i];
             llenar[i]= (int) (Math.random()*1000000) ;
-            contenido.insertarBin(llenar[i]);
-            
-        }
-    }
-    //-------------------------------------------
-        //metodo para llenar Arbol binario
-    public void llenarbinAvl(ControlArbolAvl contenido){
-        for (int i = 0; i < 100; i++) {
-            int j = llenar[i];
-            llenar[i]= (int) (Math.random()*1000000) ;
-            contenido.insertar(llenar[i]);
+            contenidobin.insertarBin(llenar[i]);
+            contenidoavl.insertar(llenar[i]);
             
         }
     }

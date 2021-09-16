@@ -198,5 +198,27 @@ public class ControlArbolbin {
             nivelRecursivo(n.getHijoDerecho(),nvl-1);
         }
     }
+    //Metodo para buscar un elemento del arbol Avl
+    public void buscar(int dato){
+        int x=0;
+            buscar(dato, raiz,x);            
+    }
+    public Nodobinclass buscar(int dato, Nodobinclass s,int numcom) {
+        
+        if (s == null) {
+            System.out.println("No hay datos existentes");
+            return null;
+        } else if (s.getContenido() == dato) {
+            System.out.println("Dato encontrado---> "+dato);
+            System.out.println("El numero de comparaciones--->  " +numcom);
+            return s;
+        } else if (s.getContenido() < dato) {
+            return buscar(dato, s.getHijoIzquierdo(),numcom++);
+        } else {
+            numcom++;
+            return buscar(dato, s.getHijoIzquierdo(),numcom++);
+        }
+    }
+    //--------------------------------------------
     
 }

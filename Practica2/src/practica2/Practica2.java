@@ -24,6 +24,7 @@ public class Practica2 {
         NumerosAleatorios llena=new NumerosAleatorios();
         Scanner scan= new Scanner(System.in);
         //-------------------------------------------------------
+         llena.llenar(carbolBin,carbolavl);
 //        System.out.println("Arbol bin");
 //        llena.llenarbin(carbolBin);
 //        System.out.println("----------------------------");
@@ -32,10 +33,12 @@ public class Practica2 {
 //        carbolBin.inOrdenRecursivo();
         System.out.println("#####################################");
         System.out.println("Arbol Avl");
-        llena.llenarbinAvl(carbolavl);
-        carbolavl.enorden();
-        System.out.println(""+carbolavl.getAltura());
-        carbolavl.niveles();
+        carbolBin.inOrdenRecursivo();
+        System.out.println("");
+        System.out.println("Ingrese dato a buscar");
+        int dato;
+        dato=Integer.parseInt(scan.nextLine());
+        carbolBin.buscar(dato);
         
     }
     
