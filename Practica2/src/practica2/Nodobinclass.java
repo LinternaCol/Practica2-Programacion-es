@@ -9,13 +9,13 @@ package practica2;
  *
  * @author s216e15
  */
-public class Nodo {
+public class Nodobinclass {
     
     private int contenido;
-    private Nodo hijoIzquierdo;
-    private Nodo hijoDerecho;
+    private Nodobinclass hijoIzquierdo;
+    private Nodobinclass hijoDerecho;
 
-    public Nodo(int contenido) {
+    public Nodobinclass(int contenido) {
         this.contenido = contenido;
     }
 
@@ -27,19 +27,19 @@ public class Nodo {
         this.contenido = contenido;
     }
 
-    public Nodo getHijoIzquierdo() {
+    public Nodobinclass getHijoIzquierdo() {
         return hijoIzquierdo;
     }
 
-    public void setHijoIzquierdo(Nodo hijoIzquierdo) {
+    public void setHijoIzquierdo(Nodobinclass hijoIzquierdo) {
         this.hijoIzquierdo = hijoIzquierdo;
     }
 
-    public Nodo getHijoDerecho() {
+    public Nodobinclass getHijoDerecho() {
         return hijoDerecho;
     }
 
-    public void setHijoDerecho(Nodo hijoDerecho) {
+    public void setHijoDerecho(Nodobinclass hijoDerecho) {
         this.hijoDerecho = hijoDerecho;
     }
     

@@ -13,15 +13,15 @@ import java.util.Stack;
  */
 public class ControlArbolbin {
     
-    private Nodo raiz;
+    private Nodobinclass raiz;
     
     public void insertarBin(int valor){
-        Nodo n = new Nodo(valor);
+        Nodobinclass n = new Nodobinclass(valor);
         if(raiz == null){
             raiz = n;
         }else{
-            Nodo actual = raiz;
-            Nodo anterior = null;
+            Nodobinclass actual = raiz;
+            Nodobinclass anterior = null;
             // busca don voy a insertar 
             while(actual != null){
                 anterior = actual;
@@ -43,7 +43,7 @@ public class ControlArbolbin {
         raiz = borradoBinRecursivo(raiz,valor);
     }
     
-    private Nodo borradoBinRecursivo(Nodo n, int valor){
+    private Nodobinclass borradoBinRecursivo(Nodobinclass n, int valor){
         
         if(n == null){
             return n;
@@ -66,7 +66,7 @@ public class ControlArbolbin {
         return n;
     }
     
-    private int getMinSubArbol(Nodo n){
+    private int getMinSubArbol(Nodobinclass n){
         int menor = n.getContenido();
         while(n.getHijoIzquierdo() != null){
             menor =  n.getHijoIzquierdo().getContenido();
@@ -78,8 +78,8 @@ public class ControlArbolbin {
         
     
     public void preOrdenIterativo(){
-        Stack<Nodo> pila = new Stack<>();
-        Nodo actual = raiz;
+        Stack<Nodobinclass> pila = new Stack<>();
+        Nodobinclass actual = raiz;
         pila.push(actual);
         
         while(!pila.isEmpty()){
@@ -108,7 +108,7 @@ public class ControlArbolbin {
     }
     
     
-    public void preOrdenRecursivo(Nodo actual){
+    public void preOrdenRecursivo(Nodobinclass actual){
             //procesar nodo
             System.out.print(actual.getContenido()+",");
             if(actual.getHijoIzquierdo() != null){
@@ -128,7 +128,7 @@ public class ControlArbolbin {
     }
     
     
-    public void inOrdenRecursivo(Nodo actual){
+    public void inOrdenRecursivo(Nodobinclass actual){
             
             if(actual.getHijoIzquierdo() != null){
                 inOrdenRecursivo(actual.getHijoIzquierdo());
@@ -148,7 +148,7 @@ public class ControlArbolbin {
     }
     
     
-    public void posOrdenRecursivo(Nodo actual){
+    public void posOrdenRecursivo(Nodobinclass actual){
             
             if(actual.getHijoIzquierdo() != null){
                 posOrdenRecursivo(actual.getHijoIzquierdo());
@@ -164,7 +164,7 @@ public class ControlArbolbin {
         return getAltura(raiz);
     }
     
-    private int getAltura(Nodo n){
+    private int getAltura(Nodobinclass n){
         if(n == null){
             return 0;
         }else{
@@ -180,7 +180,7 @@ public class ControlArbolbin {
     }
     
     public void niveles(){
-        Nodo n = raiz;
+        Nodobinclass n = raiz;
         int  numN = getAltura(n);
         for (int i = 1; i <= numN; i++) {
             System.out.println("Nivel:"+i);
@@ -188,7 +188,7 @@ public class ControlArbolbin {
         }
     }
     
-    public void nivelRecursivo(Nodo n,int nvl){
+    public void nivelRecursivo(Nodobinclass n,int nvl){
         if(n==null){
             
         }else if(nvl ==1){

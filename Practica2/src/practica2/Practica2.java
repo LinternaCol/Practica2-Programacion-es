@@ -5,6 +5,8 @@
  */
 package practica2;
 
+import java.util.Scanner;
+
 /**
  *
  * @author USUARIO
@@ -18,13 +20,25 @@ public class Practica2 {
         //Variables locales
         
         ControlArbolbin carbolBin = new ControlArbolbin();
+        ControlArbolAvl carbolavl = new ControlArbolAvl();
         NumerosAleatorios llena=new NumerosAleatorios();
+        Scanner scan= new Scanner(System.in);
         //-------------------------------------------------------
-        llena.llenar(carbolBin);
-        System.out.println("----------------------------");
-        carbolBin.niveles();
-        System.out.println("in>orden----------------------------");
-        carbolBin.inOrdenRecursivo();
+//        System.out.println("Arbol bin");
+//        llena.llenarbin(carbolBin);
+//        System.out.println("----------------------------");
+//        carbolBin.niveles();
+//        System.out.println("in>orden----------------------------");
+//        carbolBin.inOrdenRecursivo();
+        System.out.println("#####################################");
+        System.out.println("Arbol Avl");
+        llena.llenarbinAvl(carbolavl);
+        carbolavl.enorden();
+        int dato;
+        System.out.println("digete dato a buscar");
+        dato =  Integer.parseInt(scan.nextLine());
+        carbolavl.buscar(dato);
+        
     }
     
 }
