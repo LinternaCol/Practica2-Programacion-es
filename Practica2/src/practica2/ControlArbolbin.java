@@ -179,13 +179,17 @@ public class ControlArbolbin {
             buscar(dato,raiz,x);            
     }
     public Nodobinclass buscar(int dato, Nodobinclass s,int numcom) {
-        
+        long tfinal,tinicio,t;
+        tinicio=System.nanoTime();
         if (s == null) {
             System.out.println("No se encotro el dato");
             return null;
         } else if (s.getContenido() == dato) {
+            tfinal=System.nanoTime();
+            t=tfinal-tinicio;
             System.out.println("Dato encontrado---> "+dato);
             System.out.println("El numero de comparaciones--->  " +numcom);
+            System.out.println("Tiempo: "+t+" ns");
             return s;
         } else if (s.getContenido() < dato) {
             return buscar(dato, s.getHijoDerecho(),numcom++);

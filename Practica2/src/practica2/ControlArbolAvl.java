@@ -21,13 +21,18 @@ public class ControlArbolAvl {
             buscar(dato, raiz,x);            
     }
     public NodoAvl buscar(int dato, NodoAvl s,int numcom) {
+        long tfinal,tinicio,t;
+        tinicio=System.nanoTime();
         
         if (s == null) {
             System.out.println("Dato no encontrado");
             return null;
         } else if (s.getCont() == dato) {
+            tfinal=System.nanoTime();
+            t=tfinal-tinicio;
             System.out.println("Dato encontrado---> "+dato);
             System.out.println("El numero de comparaciones--->  " +numcom);
+            System.out.println("Tiempo: "+t+" ns");
             return s;
         } else if (s.getCont() < dato) {
             return buscar(dato, s.getHijoder(),numcom++);
